@@ -7,13 +7,13 @@ class UsersController < ApplicationController
       render json: UserSerializer.new(user), status: :created
     end
   
-    def show #"/me"
+    def show #"/me" #used every time there is a page refresh to find the current user based on the session user
       render json: UserSerializer.new(@current_user), status: :ok
     end
   
-    private
+    private 
   
     def user_params
-      params.permit(:username, :first_name, :last_name, :email, :password, :password_confirmation)
+      params.permit(:first_name, :last_name, :email, :password, :password_confirmation)
     end
 end
