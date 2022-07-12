@@ -4,7 +4,7 @@ class ApplicationController < ActionController::API
   rescue_from ActiveRecord::RecordNotFound, with: :no_route
   rescue_from ActiveRecord::RecordInvalid, with: :invalid_record
   before_action :authorized! #will try to run on every action unless specified (because everyone inherits from application controller)
-  wrap_parameters format: [] #related to strong params and its ability to build a nested object in params
+  wrap_parameters format: [] #macro - rails will already try to package params w in resource being generated #related to strong params and its ability to build a nested object in params
 
   private
 
